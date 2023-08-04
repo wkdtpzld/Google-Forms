@@ -1,15 +1,16 @@
 import React from "react";
-import {SafeAreaView} from "react-native";
 import {NativeStackScreenProps} from "@react-navigation/native-stack";
 import {RootParam} from "@/Navigation";
+import {Text, View} from "react-native";
 
 type Props = NativeStackScreenProps<RootParam, "Home">
 
 const Home = ({route, navigation}: Props) => {
 
     return (
-        <SafeAreaView style={{flex: 1}}>
-        </SafeAreaView>
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+            <Text style={{fontFamily: "Pretendard-Bold"}}>Hello world</Text>
+        </View>
     );
 };
 

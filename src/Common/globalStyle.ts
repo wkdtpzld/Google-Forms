@@ -25,5 +25,8 @@ export const MyTheme = {
         BLUE_DARK: "#0000FF",
         BLUE_LIGHT: "#0066FF",
         HYPER_LINK: "#0050C8",
+        MAIN_LIGHT: "#F0EBF8",
+        MAIN_DARK: "#673AB7",
+
     }
 }
