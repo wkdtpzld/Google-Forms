@@ -1,8 +1,8 @@
 import React from "react";
 import {View} from 'react-native';
-import {RootNavigator} from "@/navigation";
+import {RootNavigator} from "@/Navigation";
 import {Provider} from "react-redux";
-import store from "@/redux/store/store";
+import store from "@/Redux/store/store";
 
 export default function App() {
     return (

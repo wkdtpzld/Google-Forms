@@ -1,13 +1,13 @@
 import {configureStore} from "@reduxjs/toolkit";
-import userInfoSlice, {UserState} from "@/redux/slice/userInfo";
+import themeInfoSlice, {ThemeState} from "@/Redux/slice/userInfo";
 
 export interface StoreProps {
-    user: UserState
+    theme: ThemeState
 }
 
 const store = configureStore({
     reducer: {
-        user: userInfoSlice,
+        theme: themeInfoSlice,
     },
     middleware: getDefaultMiddleware => getDefaultMiddleware({
         serializableCheck: false,

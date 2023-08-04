@@ -1,7 +1,8 @@
 import React from "react";
 import {createStackNavigator} from "@react-navigation/stack";
-import Home from "@/screen/Home";
+import Home from "@/Screen/Home";
 import {createNavigationContainerRef, NavigationContainer} from "@react-navigation/native";
+import {MyTheme} from "@/Common/globalStyle";
 
 export type RootParam = {
     Home: undefined;
@@ -17,6 +18,7 @@ export const RootNavigator = () => {
         <>
             <NavigationContainer
                 ref={navigationRef}
+                theme={MyTheme}
             >
                 <RootStack.Navigator
                     initialRouteName={"Home"}

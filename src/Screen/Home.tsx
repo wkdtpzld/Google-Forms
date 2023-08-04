@@ -1,7 +1,7 @@
 import React from "react";
 import {SafeAreaView} from "react-native";
 import {NativeStackScreenProps} from "@react-navigation/native-stack";
-import {RootParam} from "@/navigation";
+import {RootParam} from "@/Navigation";
 
 type Props = NativeStackScreenProps<RootParam, "Home">
 
