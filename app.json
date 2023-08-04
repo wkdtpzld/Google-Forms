@@ -1,5 +1,8 @@
 {
   "expo": {
+    "experiments": {
+      "tsconfigPaths": true
+    },
     "name": "google-forms",
     "slug": "google-forms",
     "version": "1.0.0",
