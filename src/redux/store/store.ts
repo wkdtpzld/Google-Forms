@@ -10,7 +10,7 @@ const store = configureStore({
         user: userInfoSlice,
     },
     middleware: getDefaultMiddleware => getDefaultMiddleware({
-       serializableCheck: false,
+        serializableCheck: false,
     }),
 });
 
