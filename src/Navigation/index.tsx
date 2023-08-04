@@ -1,6 +1,6 @@
 import React from "react";
 import {createStackNavigator} from "@react-navigation/stack";
-import Home from "@/Screen/Home";
+import Home from "@/Screen/Home/Home";
 import {createNavigationContainerRef, NavigationContainer} from "@react-navigation/native";
 import {MyTheme} from "@/Common/globalStyle";
 

@@ -25,6 +25,9 @@ declare module '@react-navigation/native' {
             BLUE_DARK: string;
             BLUE_LIGHT: string;
             HYPER_LINK: string;
+            MAIN_LIGHT: string;
+            MAIN_DARK: string;
         }
     }
+    export function useTheme(): ExtendTheme;
 }
