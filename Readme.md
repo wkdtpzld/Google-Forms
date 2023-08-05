@@ -36,6 +36,10 @@ npx create-expo-app (Typescript) 생성
 [ ] 설문 제목 추가, 편집
 
 [ ] 설문 설명 추가, 편집
+- Form 컴포넌트 제작
+  - FormBox, FormHeader, FormContent 분리
+  - FormSlice 내부 상태관리 Redux 생성
+
 
 [ ] 설문 추가하기 버튼 클릭시 설문 추가
 - 단답형 컴포넌트

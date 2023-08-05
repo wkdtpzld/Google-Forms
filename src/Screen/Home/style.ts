@@ -6,5 +6,5 @@ export const styles = (themeColor) => StyleSheet.create({
         backgroundColor: themeColor,
         justifyContent: 'flex-start',
         paddingHorizontal: 15,
-    }
+    },
 })

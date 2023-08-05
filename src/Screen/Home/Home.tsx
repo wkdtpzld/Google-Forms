@@ -2,10 +2,9 @@ import React from "react";
 import {NativeStackScreenProps} from "@react-navigation/native-stack";
 import {RootParam} from "@/Navigation";
 import {StatusBar, View} from "react-native";
-import DefaultText from "@/Components/Atom/DefaultText/DefaultText";
 import {useTheme} from "@react-navigation/native";
 import {styles} from "@/Screen/Home/style";
-import FormBox from "@/Components/Atom/FormBox/FormBox";
+import Form from "@/Components/Molecules/Form/Form";
 
 type Props = NativeStackScreenProps<RootParam, "Home">
 
@@ -16,9 +15,7 @@ const Home = ({route, navigation}: Props) => {
     return (
         <View style={styles(color.MAIN_LIGHT).homeWrapper}>
             <StatusBar barStyle={'light-content'}></StatusBar>
-            <FormBox>
-                <DefaultText>안녕</DefaultText>
-            </FormBox>
+            <Form></Form>
         </View>
     );
 };

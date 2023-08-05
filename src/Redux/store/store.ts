@@ -1,13 +1,13 @@
 import {configureStore} from "@reduxjs/toolkit";
-import themeInfoSlice, {ThemeState} from "@/Redux/slice/userInfo";
+import formSlice, {FormState} from "@/Redux/slice/formSlice";
 
 export interface StoreProps {
-    theme: ThemeState
+    formState: FormState
 }
 
 const store = configureStore({
     reducer: {
-        theme: themeInfoSlice,
+        formState: formSlice
     },
     middleware: getDefaultMiddleware => getDefaultMiddleware({
         serializableCheck: false,
