@@ -1,21 +1,23 @@
 import React from "react";
-import {StyleProp, TextInput, TextInputProps, TextStyle} from "react-native";
-import {styles} from "@/Components/Atom/DefaultInput/style";
+import {TextInput, TextInputProps, TextStyle} from "react-native";
+import {globalFontStyles, GlobalFontTypeValue} from "@/Common/globalFont";
 
 interface IProps extends TextInputProps {
-    textStyle?: StyleProp<TextStyle>;
+    fontType: GlobalFontTypeValue;
+    fontStyle?: Omit<TextStyle, 'fontSize' | 'fontFamily'>
 
 }
 
 const DefaultInput = ({
-    textStyle = styles.fontStyle,
+    fontType,
+    fontStyle,
     ...props
 }:IProps) => {
 
     return (
         <TextInput
             {...props}
-            style={textStyle}
+            style={{...globalFontStyles[fontType], ...fontStyle}}
         >
             {props.children}
         </TextInput>
