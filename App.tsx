@@ -1,5 +1,5 @@
 import React from "react";
-import {View} from 'react-native';
+import {Keyboard, Pressable, View} from 'react-native';
 import {RootNavigator} from "@/Navigation";
 import {Provider} from "react-redux";
 import store from "@/Redux/store/store";
@@ -17,9 +17,9 @@ export default function App() {
         <Provider store={store} >
             {
                 isReady && (
-                    <View style={{flex: 1}}>
+                    <Pressable style={{flex: 1}} onPress={() => Keyboard.dismiss()}>
                         <RootNavigator />
-                    </View>
+                    </Pressable>
                 )
             }
         </Provider>

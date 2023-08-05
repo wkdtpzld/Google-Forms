@@ -1,20 +1,19 @@
 import React from "react";
-import {StyleProp, Text, TextProps, TextStyle} from "react-native";
-import {styles} from "@/Components/Atom/DefaultText/style";
+import {Text, TextProps, TextStyle} from "react-native";
+import {globalFontStyles, GlobalFontTypeValue} from "@/Common/globalFont";
 
 interface DefaultTextProps extends TextProps {
-    style?: StyleProp<TextStyle>;
+    fontType: GlobalFontTypeValue;
+    fontStyle?: Omit<TextStyle, 'fontSize' | 'fontFamily'>
     numberOfLines?: number;
-
-    [propName: string]: any;
 }
 
-const DefaultText = ({style, numberOfLines, children, ...props}: DefaultTextProps) => {
+const DefaultText = ({fontType, fontStyle, numberOfLines, children, ...props}: DefaultTextProps) => {
 
     return (
         <Text
             {...props}
-            style={[styles.defaultFont, style]}
+            style={{...globalFontStyles[fontType], ...fontStyle}}
             numberOfLines={numberOfLines}
         >
             {children}
