@@ -1,6 +1,6 @@
 import {configureStore} from "@reduxjs/toolkit";
-import formSlice, {FormState} from "@/Redux/slice/formSlice";
-
+import formSlice from "@/Redux/slice/FormSlice/formSlice";
+import {FormState} from "@/Redux/slice/FormSlice/formType";
 export interface StoreProps {
     formState: FormState
 }

@@ -1,30 +1,28 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {FormContentInfo, FormContentTypeInfo, FormInfo, FormState} from "@/Redux/slice/FormSlice/formType";
 
-export interface FormHeaderInfo {
-    title: string;
-    description: string;
-}
-
-export interface FormInfo {
-    id: number;
-    header: FormHeaderInfo;
-}
-
-export interface FormState {
-    state: FormInfo
+export const initialContentState: FormContentInfo = {
+    id: 0,
+    type: FormContentTypeInfo.SHORT,
+    textQuestion: {
+        question: '',
+        answer: '',
+    }
 }
 
 const initialFormState: FormInfo = {
     id: -1,
     header: {
         title: '제목을 지어주세요.',
-        description: '설명을 적어주세요.'
+        description: ''
     },
+    content: [initialContentState],
 }
 
 const initialState: FormState = {
     state: initialFormState
 };
+
 
 const formSlice = createSlice({
     name: "form",
@@ -35,12 +33,15 @@ const formSlice = createSlice({
         },
         onChangeForm<T>(state: FormState, action: PayloadAction<T>) {
             state.state = {...state.state, ...action.payload};
+        },
+        onAppendForm(state: FormState, action: PayloadAction<FormContentInfo[]>) {
+            state.state = {...state.state, content: action.payload}
         }
     },
 });
 
 export const {
-    resetForm, onChangeForm
+    resetForm, onChangeForm, onAppendForm
 } = formSlice.actions;
 
 export default formSlice.reducer;

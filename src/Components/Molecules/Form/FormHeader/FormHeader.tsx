@@ -5,7 +5,8 @@ import {styles} from "@/Components/Molecules/Form/style";
 import {View} from "react-native";
 import {useDispatch, useSelector} from "react-redux";
 import {StoreProps} from "@/Redux/store/store";
-import {FormHeaderInfo, onChangeForm} from "@/Redux/slice/formSlice";
+import {onChangeForm} from "@/Redux/slice/FormSlice/formSlice";
+import {FormHeaderInfo} from "@/Redux/slice/FormSlice/formType";
 
 interface Header {
     header: FormHeaderInfo
@@ -27,6 +28,7 @@ const FormHeader = () => {
                 fontType={"bold3"}
                 value={form.state.header.title}
                 onChange={(e) => onChange(e.nativeEvent.text, 'title')}
+                placeholder={'제목을 적어주세요.'}
             >
             </DefaultInput>
             <Spacing size={12} type={ISpacingType.height} />
@@ -35,6 +37,7 @@ const FormHeader = () => {
                 multiline={true}
                 value={form.state.header.description}
                 onChange={(e) => onChange(e.nativeEvent.text, 'description')}
+                placeholder={'설명을 적어주세요'}
             >
             </DefaultInput>
         </View>
