@@ -8,6 +8,7 @@ import Icon from "@/Components/Atom/Icon/Icon";
 import {IconMap} from "@/Utils/svg";
 import {onChangeForm} from "@/Redux/slice/FormSlice/formSlice";
 import {FormContentInfo} from "@/Redux/slice/FormSlice/formType";
+import {styles} from "@/Components/Molecules/Form/style";
 
 interface Content {
     content: FormContentInfo[]
@@ -35,15 +36,16 @@ const FormContent = ({onSelect, index, ...props}:IProps) => {
 
     return (
         <View {...props}>
-            <View style={{flexDirection: 'row', alignItems: 'center', paddingLeft: 15, paddingVertical: 12}}>
-                <DefaultInput
-                    value={contents[index].title}
-                    style={{backgroundColor: COLOR_CODE.GRAY_150, width: '85%', paddingVertical: 4, paddingHorizontal: 12}}
-                    placeholder={'제목'}
-                    fontType={"bold3"}
-                    onChange={(e) => onChange(e.nativeEvent.text, 'title')}
-                />
-                <Pressable style={{justifyContent: 'center', width: '15%', alignItems: 'center'}}>
+            <View style={styles.formContentBoxStyle}>
+                <View style={styles.formContentTitleStyle}>
+                    <DefaultInput
+                        value={contents[index].title}
+                        placeholder={'제목'}
+                        fontType={"medium2"}
+                        onChange={(e) => onChange(e.nativeEvent.text, 'title')}
+                    />
+                </View>
+                <Pressable style={styles.formContentMoreButtonBoxStyle}>
                     <Icon xml={IconMap.meatball} width={24} height={24} fill={COLOR_CODE.BLACK} />
                 </Pressable>
             </View>

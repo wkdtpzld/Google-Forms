@@ -17,9 +17,9 @@ export default function App() {
         <Provider store={store} >
             {
                 isReady && (
-                    <Pressable style={{flex: 1}} onPress={() => Keyboard.dismiss()}>
+                    <View style={{flex: 1}}>
                         <RootNavigator />
-                    </Pressable>
+                    </View>
                 )
             }
         </Provider>

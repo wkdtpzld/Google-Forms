@@ -7,4 +7,5 @@ export const styles = (themeColor) => StyleSheet.create({
         justifyContent: 'flex-start',
         paddingHorizontal: 15,
     },
+    homeBox: {flexGrow: 1, backgroundColor: themeColor}
 })
