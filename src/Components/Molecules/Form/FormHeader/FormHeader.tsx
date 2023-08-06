@@ -7,6 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {StoreProps} from "@/Redux/store/store";
 import {onChangeForm} from "@/Redux/slice/FormSlice/formSlice";
 import {FormHeaderInfo} from "@/Redux/slice/FormSlice/formType";
+import {COLOR_CODE} from "@/Common/globalStyle";
 
 interface Header {
     header: FormHeaderInfo
@@ -29,6 +30,7 @@ const FormHeader = () => {
                 value={form.state.header.title}
                 onChange={(e) => onChange(e.nativeEvent.text, 'title')}
                 placeholder={'제목을 적어주세요.'}
+                placeholderTextColor={COLOR_CODE.GRAY_600}
             >
             </DefaultInput>
             <Spacing size={12} type={ISpacingType.height} />

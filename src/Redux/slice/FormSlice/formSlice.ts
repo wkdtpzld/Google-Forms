@@ -4,6 +4,7 @@ import {FormContentInfo, FormContentTypeInfo, FormInfo, FormState} from "@/Redux
 export const initialContentState: FormContentInfo = {
     id: 0,
     type: FormContentTypeInfo.SHORT,
+    title: '',
     textQuestion: {
         question: '',
         answer: '',

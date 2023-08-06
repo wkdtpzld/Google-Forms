@@ -4,6 +4,7 @@ import FormBox from "@/Components/Atom/FormBox/FormBox";
 import FormHeader from "@/Components/Molecules/Form/FormHeader/FormHeader";
 import {useSelector} from "react-redux";
 import {StoreProps} from "@/Redux/store/store";
+import FormContent from "@/Components/Molecules/Form/FormContent/FormContent";
 
 const Form = () => {
 
@@ -14,7 +15,7 @@ const Form = () => {
             <FormBox formType={FORM_TYPE.HEADER} minHeight={150} borderRadius={4}>
                 <FormHeader />
             </FormBox>
-            {formContents.map((form) => {
+            {formContents.map((form, index) => {
                 return (
                     <FormBox
                         key={`${form.id}Content`}
@@ -22,7 +23,9 @@ const Form = () => {
                         borderRadius={4}
                         formType={FORM_TYPE.CONTENT}
                     >
+                        <FormContent index={index} onSelect={false}>
 
+                        </FormContent>
                     </FormBox>
                 )
             })}

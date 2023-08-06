@@ -28,6 +28,7 @@ export interface FormContentSelectInfo {
 export interface FormContentInfo {
     id: number;
     type: FormContentTypeInfo;
+    title: string;
     textQuestion?: FormContentTextInfo;
     selectQuestion?: FormContentSelectInfo;
 }
