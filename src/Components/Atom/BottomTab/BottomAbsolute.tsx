@@ -1,5 +1,5 @@
 import React from "react";
-import {KeyboardAvoidingView, Platform, View, ViewProps} from "react-native";
+import {View, ViewProps} from "react-native";
 import {useTheme} from "@react-navigation/native";
 import {styles} from "@/Components/Atom/BottomTab/style";
 

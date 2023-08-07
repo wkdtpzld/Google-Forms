@@ -19,7 +19,8 @@ const ModalSlice = createSlice({
     initialState: InitialModalState,
     reducers: {
         setModalState(state: ModalInfo, action: PayloadAction<ModalInfo>) {
-            state = {...action.payload}
+            state.visible = action.payload.visible;
+            state.bottomButtonComponent = action.payload.bottomButtonComponent;
         },
         setModalVisible(state, action: PayloadAction<boolean>) {
             state.visible = action.payload;

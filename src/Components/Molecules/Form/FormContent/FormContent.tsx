@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useCallback} from "react";
 import {Pressable, View, ViewProps} from "react-native";
 import DefaultInput from "@/Components/Atom/DefaultInput/DefaultInput";
 import {useDispatch, useSelector} from "react-redux";
@@ -9,6 +9,8 @@ import {IconMap} from "@/Utils/svg";
 import {onChangeForm} from "@/Redux/slice/FormSlice/formSlice";
 import {FormContentInfo} from "@/Redux/slice/FormSlice/formType";
 import {styles} from "@/Components/Molecules/Form/style";
+import {setModalState} from "@/Redux/slice/ModalSlice/modalSlice";
+import FormBottomSheetContent from "@/Components/Molecules/Form/FormBottomSheetContent/FormBottomSheetContent";
 
 interface Content {
     content: FormContentInfo[]
@@ -34,6 +36,15 @@ const FormContent = ({onSelect, index, ...props}:IProps) => {
         dispatch(onChangeForm<Content>(newContents));
     }
 
+    const onClickMoreButton = useCallback((index: number) => {
+        dispatch(setModalState({
+            visible: true,
+            bottomButtonComponent: (
+                <FormBottomSheetContent index={index} />
+            )
+        }));
+    }, [index]);
+
     return (
         <View {...props}>
             <View style={styles.formContentBoxStyle}>
@@ -45,7 +56,10 @@ const FormContent = ({onSelect, index, ...props}:IProps) => {
                         onChange={(e) => onChange(e.nativeEvent.text, 'title')}
                     />
                 </View>
-                <Pressable style={styles.formContentMoreButtonBoxStyle}>
+                <Pressable
+                    style={styles.formContentMoreButtonBoxStyle}
+                    onPress={() => onClickMoreButton(index)}
+                >
                     <Icon xml={IconMap.meatball} width={24} height={24} fill={COLOR_CODE.BLACK} />
                 </Pressable>
             </View>

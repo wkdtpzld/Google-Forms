@@ -5,6 +5,7 @@ import {Provider} from "react-redux";
 import store from "@/Redux/store/store";
 import {useFonts} from "expo-font";
 import {SafeAreaProvider} from "react-native-safe-area-context";
+import ModalBottomSheet from "@/Components/Molecules/Modal/ModalBottomSheet";
 export default function App() {
     const [isReady] = useFonts({
         'Pretendard-Regular' : require('./assets/fonts/Pretendard-Regular.ttf'),
@@ -21,6 +22,7 @@ export default function App() {
                     isReady && (
                         <View style={{flex: 1}}>
                             <RootNavigator />
+                            <ModalBottomSheet />
                         </View>
                     )
                 }
