@@ -23,7 +23,6 @@ const Home = ({route, navigation}: Props) => {
                 style={styles(color.MAIN_LIGHT).homeBox}
 
                 enableAutomaticScroll={true}
-                bounces={true}
                 extraScrollHeight={200}
                 enableOnAndroid={true}
                 extraHeight={Platform.select({android: 100})}

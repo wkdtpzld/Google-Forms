@@ -1,9 +1,10 @@
 import React from "react";
-import {Keyboard, Pressable, View} from 'react-native';
+import {View} from 'react-native';
 import {RootNavigator} from "@/Navigation";
 import {Provider} from "react-redux";
 import store from "@/Redux/store/store";
 import {useFonts} from "expo-font";
+import {SafeAreaProvider} from "react-native-safe-area-context";
 export default function App() {
     const [isReady] = useFonts({
         'Pretendard-Regular' : require('./assets/fonts/Pretendard-Regular.ttf'),
@@ -15,13 +16,15 @@ export default function App() {
 
     return (
         <Provider store={store} >
-            {
-                isReady && (
-                    <View style={{flex: 1}}>
-                        <RootNavigator />
-                    </View>
-                )
-            }
+            <SafeAreaProvider>
+                {
+                    isReady && (
+                        <View style={{flex: 1}}>
+                            <RootNavigator />
+                        </View>
+                    )
+                }
+            </SafeAreaProvider>
         </Provider>
     );
 }
