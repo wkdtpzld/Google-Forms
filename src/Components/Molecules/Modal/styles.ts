@@ -32,5 +32,6 @@ export const styles = StyleSheet.create({
     btnContainer: {
         paddingHorizontal: 15,
         paddingVertical: 16,
+        alignItems: 'center'
     }
 })
