@@ -5,7 +5,7 @@ import {IconMap} from "@/Utils/svg";
 import BottomAbsolute from "@/Components/Atom/BottomTab/BottomAbsolute";
 import {COLOR_CODE} from "@/Common/globalStyle";
 import {useDispatch, useSelector} from "react-redux";
-import {initialContentState, onAppendForm} from "@/Redux/slice/FormSlice/formSlice";
+import {InitialContentState, onAppendForm} from "@/Redux/slice/FormSlice/formSlice";
 import {StoreProps} from "@/Redux/store/store";
 
 const BottomButton = () => {
@@ -14,7 +14,7 @@ const BottomButton = () => {
     const dispatch = useDispatch();
 
     const onPressEvent = () => {
-        const newContentList = [...formContent, {...initialContentState, id: formContent.length}];
+        const newContentList = [...formContent, {...InitialContentState, id: formContent.length}];
         dispatch(onAppendForm(newContentList));
     }
 

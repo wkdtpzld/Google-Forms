@@ -31,6 +31,7 @@ const FormHeader = () => {
                 onChange={(e) => onChange(e.nativeEvent.text, 'title')}
                 placeholder={'제목을 적어주세요.'}
                 placeholderTextColor={COLOR_CODE.GRAY_600}
+                maxLength={30}
             >
             </DefaultInput>
             <Spacing size={12} type={ISpacingType.height} />
@@ -40,6 +41,8 @@ const FormHeader = () => {
                 value={form.state.header.description}
                 onChange={(e) => onChange(e.nativeEvent.text, 'description')}
                 placeholder={'설명을 적어주세요'}
+                maxLength={100}
+                numberOfLines={3}
             >
             </DefaultInput>
         </View>

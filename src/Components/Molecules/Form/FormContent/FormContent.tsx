@@ -1,20 +1,13 @@
-import React, {useCallback} from "react";
-import {Pressable, View, ViewProps} from "react-native";
-import DefaultInput from "@/Components/Atom/DefaultInput/DefaultInput";
-import {useDispatch, useSelector} from "react-redux";
+import React from "react";
+import {View, ViewProps} from "react-native";
+import {useSelector} from "react-redux";
 import {StoreProps} from "@/Redux/store/store";
-import {COLOR_CODE} from "@/Common/globalStyle";
-import Icon from "@/Components/Atom/Icon/Icon";
-import {IconMap} from "@/Utils/svg";
-import {onChangeForm} from "@/Redux/slice/FormSlice/formSlice";
-import {FormContentInfo} from "@/Redux/slice/FormSlice/formType";
+import {FormContentTypeInfo} from "@/Redux/slice/FormSlice/formType";
 import {styles} from "@/Components/Molecules/Form/style";
-import {setModalState} from "@/Redux/slice/ModalSlice/modalSlice";
-import FormBottomSheetContent from "@/Components/Molecules/Form/FormBottomSheetContent/FormBottomSheetContent";
+import FormContentHeader from "@/Components/Molecules/Form/FormContent/Header/FormContentHeader";
+import DefaultText from "@/Components/Atom/DefaultText/DefaultText";
+import FormSelector from "@/Components/Molecules/Form/FormContent/Detail/FormSelector";
 
-interface Content {
-    content: FormContentInfo[]
-}
 
 interface IProps extends ViewProps {
     onSelect: boolean;
@@ -24,45 +17,37 @@ interface IProps extends ViewProps {
 const FormContent = ({onSelect, index, ...props}:IProps) => {
 
     const contents = useSelector((state:StoreProps) => state.formState.state.content);
-    const dispatch = useDispatch();
 
-    const onChange = (value: string, name: string) => {
-        const newContent = {
-            ...contents[index],
-            [name]: value,
-        };
-
-        const newContents:Content = {content: [...contents.slice(0, index), newContent, ...contents.slice(index + 1)]};
-        dispatch(onChangeForm<Content>(newContents));
-    }
-
-    const onClickMoreButton = useCallback((index: number) => {
-        dispatch(setModalState({
-            visible: true,
-            bottomButtonComponent: (
-                <FormBottomSheetContent index={index} />
-            )
-        }));
-    }, [index]);
 
     return (
         <View {...props}>
             <View style={styles.formContentBoxStyle}>
-                <View style={styles.formContentTitleStyle}>
-                    <DefaultInput
-                        value={contents[index].title}
-                        placeholder={'제목'}
-                        fontType={"medium2"}
-                        onChange={(e) => onChange(e.nativeEvent.text, 'title')}
-                    />
-                </View>
-                <Pressable
-                    style={styles.formContentMoreButtonBoxStyle}
-                    onPress={() => onClickMoreButton(index)}
-                >
-                    <Icon xml={IconMap.meatball} width={24} height={24} fill={COLOR_CODE.BLACK} />
-                </Pressable>
+                <FormContentHeader index={index} />
             </View>
+            {
+                contents[index].type === FormContentTypeInfo.SHORT && (
+                    <View style={styles.formContentWrapperStyle}>
+                        <DefaultText fontType={"semiBold1"}>단답형 질문</DefaultText>
+                    </View>
+                )
+            }
+            {
+                contents[index].type === FormContentTypeInfo.LONG && (
+                    <View style={styles.formContentWrapperStyle}>
+                        <DefaultText fontType={"semiBold1"}>장문형 질문</DefaultText>
+                    </View>
+                )
+            }
+            {
+                contents[index].type === FormContentTypeInfo.MULTIPLE && (
+                    <FormSelector index={index} iconType={"circle"}/>
+                )
+            }
+            {
+                contents[index].type === FormContentTypeInfo.CHECK && (
+                    <FormSelector index={index} iconType={"checkBox"}/>
+                )
+            }
         </View>
     )
 }

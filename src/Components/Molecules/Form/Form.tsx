@@ -19,13 +19,11 @@ const Form = () => {
                 return (
                     <FormBox
                         key={`${form.id}Content`}
-                        minHeight={150}
+                        minHeight={100}
                         borderRadius={4}
                         formType={FORM_TYPE.CONTENT}
                     >
-                        <FormContent index={index} onSelect={false}>
-
-                        </FormContent>
+                        <FormContent index={index} onSelect={false} />
                     </FormBox>
                 )
             })}

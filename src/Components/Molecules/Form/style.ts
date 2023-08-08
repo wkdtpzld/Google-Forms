@@ -23,5 +23,22 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         width: '15%',
         alignItems: 'center'
+    },
+    formContentWrapperStyle: {
+        paddingHorizontal: 15,
+        paddingBottom: 8
+    },
+    formContentStyle: {
+        paddingHorizontal: 8,
+        paddingVertical: 12
+    },
+    formContentRowContent: {
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    formContentAppendContent: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: 4
     }
 });
