@@ -34,9 +34,6 @@ const FormBox = ({
                 <View
                     style={dynamicStyles.formHeadBorder}
                 />
-                {formType === FORM_TYPE.HEADER && (
-                    <View style={{...styles.formBorderStyle, minHeight, borderRadius}} />
-                )}
                 {children}
             </View>
         </>

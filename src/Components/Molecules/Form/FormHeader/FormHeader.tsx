@@ -42,7 +42,6 @@ const FormHeader = () => {
                 onChange={(e) => onChange(e.nativeEvent.text, 'description')}
                 placeholder={'설명을 적어주세요'}
                 maxLength={100}
-                numberOfLines={3}
             >
             </DefaultInput>
         </View>

@@ -17,6 +17,7 @@ import {FormContentInfo, FormContentTypeInfo} from "@/Redux/slice/FormSlice/form
 import {StoreProps} from "@/Redux/store/store";
 import {Content} from "@/Components/Molecules/Form/FormContent/Header/FormContentHeader";
 import DeviceEvent from "@/Utils/DeviceEvent";
+import {COLOR_CODE} from "@/Common/globalStyle";
 
 interface IProps {
     index: number;
@@ -75,7 +76,7 @@ const FormBottomSheetContent = ({index}: IProps) => {
     const prefixRenderItem = useCallback((icon) => {
         return (
             <>
-                <Icon xml={icon} width={28} height={28} />
+                <Icon xml={icon} width={28} height={28} stroke={COLOR_CODE.BLACK}/>
                 <Spacing size={8} type={ISpacingType.width} />
             </>
         )

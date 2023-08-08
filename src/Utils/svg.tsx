@@ -72,6 +72,12 @@ const trash = `
 </svg>
 `
 
+const eye = `
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M20.0009 16C20.0009 18.2092 18.2101 20 16.0009 20C13.7919 20 12.001 18.2092 12.001 16C12.001 13.7908 13.7919 12 16.0009 12C18.2101 12 20.0009 13.7908 20.0009 16Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16.0016 6.66667C10.0314 6.66667 4.97767 10.5905 3.27863 16C4.97764 21.4095 10.0314 25.3333 16.0016 25.3333C21.9717 25.3333 27.0254 21.4095 28.7245 16C27.0254 10.5906 21.9717 6.66667 16.0016 6.66667Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+`
 
 export const IconMap = {
     plusSvg,
@@ -82,7 +88,8 @@ export const IconMap = {
     checkBox,
     InCircle,
     copy,
-    trash
+    trash,
+    eye
 } as const;
 
 export type IconKey = keyof typeof IconMap;
