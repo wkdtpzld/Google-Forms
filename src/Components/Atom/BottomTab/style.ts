@@ -1,10 +1,10 @@
 import {StyleSheet} from "react-native";
 
-export const styles = (color: string) => StyleSheet.create({
+export const styles = (color: string, height: number) => StyleSheet.create({
     container: {
         position: 'absolute',
-        bottom: 0,
         width: '100%',
+        bottom: height,
         height: 50,
         justifyContent: 'center',
         alignItems: 'center',

@@ -1,5 +1,5 @@
 import React from "react";
-import {StyleProp, View} from "react-native";
+import {View} from "react-native";
 
 export enum ISpacingType {
     width = 'width',

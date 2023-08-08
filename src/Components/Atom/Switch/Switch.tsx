@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import {Pressable, View, Animated, Easing} from "react-native";
-import {COLOR_CODE} from "@/Common/globalStyle";
 import {dynamicStyle, styles} from "@/Components/Atom/Switch/style";
 import {useDispatch, useSelector} from "react-redux";
 import {StoreProps} from "@/Redux/store/store";

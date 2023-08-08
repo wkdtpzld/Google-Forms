@@ -6,7 +6,7 @@ import {
 } from "@gorhom/bottom-sheet";
 import {GestureHandlerRootView} from "react-native-gesture-handler";
 import {styles} from "@/Components/Molecules/Modal/styles";
-import {View} from "react-native";
+import {Pressable} from "react-native";
 import useBackHandlerCallback from "@/Hook/useBackHandlerCallback";
 import {IBottomSheetModalProviderProps} from "@/Components/Molecules/Modal/constants";
 import DeviceEvent from "@/Utils/DeviceEvent";
@@ -57,7 +57,7 @@ const HandleBottomSheetModalProvider = ({
             }}
         >
             <BottomSheetModalProvider>
-                <View style={styles.bottomContainer}>
+                <Pressable style={styles.bottomContainer} onPress={back}>
                     <BottomSheetModal
                         {...props}
                         ref={bottomSheetRef}
@@ -69,7 +69,7 @@ const HandleBottomSheetModalProvider = ({
                     >
                         {props.children}
                     </BottomSheetModal>
-                </View>
+                </Pressable>
             </BottomSheetModalProvider>
         </GestureHandlerRootView>
     )
