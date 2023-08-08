@@ -13,7 +13,7 @@ interface IProps extends ViewProps {
 }
 
 const FormBox = ({
-    viewStyle = styles.formBoxStyle,
+    viewStyle,
     children,
     borderRadius,
     minHeight,
@@ -22,18 +22,21 @@ const FormBox = ({
 }: IProps) => {
 
     const {color} = useTheme();
+    const dynamicStyles = dynamicStyle(color.MAIN_DARK, formType);
 
     return (
         <>
             <Spacing size={20} type={ISpacingType.height} />
             <View
                 {...props}
-                style={{...viewStyle, borderRadius, minHeight}}
+                style={{...viewStyle, borderRadius, minHeight, ...dynamicStyles.formBoxStyle}}
             >
                 <View
-                    style={dynamicStyle(color.MAIN_DARK, formType).formHeadBorder}
+                    style={dynamicStyles.formHeadBorder}
                 />
-                <View style={{...styles.formBorderStyle, minHeight, borderRadius}} />
+                {formType === FORM_TYPE.HEADER && (
+                    <View style={{...styles.formBorderStyle, minHeight, borderRadius}} />
+                )}
                 {children}
             </View>
         </>

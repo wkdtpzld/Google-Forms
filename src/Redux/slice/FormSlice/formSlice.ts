@@ -1,13 +1,34 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {FormContentInfo, FormContentTypeInfo, FormInfo, FormState} from "@/Redux/slice/FormSlice/formType";
+import {
+    FormContentInfo, FormContentSelectInfo,
+    FormContentTextInfo,
+    FormContentTypeInfo,
+    FormInfo,
+    FormState
+} from "@/Redux/slice/FormSlice/formType";
 
-export const initialContentState: FormContentInfo = {
+export const InitialShortContentState: FormContentTextInfo = {
+    answer: '',
+}
+
+export const InitialLongContentState: FormContentTextInfo = {
+    answer: '',
+}
+
+export const InitialMultipleContentState: FormContentSelectInfo[] = [{
+    content: '옵션 1', isSelect: false
+}];
+
+export const InitialCheckContentState: FormContentSelectInfo[] = [{
+    content: '옵션 1', isSelect: false
+}]
+
+export const InitialContentState: FormContentInfo = {
     id: 0,
     type: FormContentTypeInfo.SHORT,
     title: '',
     textQuestion: {
-        question: '',
-        answer: '',
+        answer: ''
     }
 }
 
@@ -17,7 +38,7 @@ const initialFormState: FormInfo = {
         title: '제목을 지어주세요.',
         description: ''
     },
-    content: [initialContentState],
+    content: [InitialContentState],
 }
 
 const initialState: FormState = {

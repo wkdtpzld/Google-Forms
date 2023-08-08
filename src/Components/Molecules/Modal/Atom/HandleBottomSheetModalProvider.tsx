@@ -9,6 +9,7 @@ import {styles} from "@/Components/Molecules/Modal/styles";
 import {View} from "react-native";
 import useBackHandlerCallback from "@/Hook/useBackHandlerCallback";
 import {IBottomSheetModalProviderProps} from "@/Components/Molecules/Modal/constants";
+import DeviceEvent from "@/Utils/DeviceEvent";
 
 const HandleBottomSheetModalProvider = ({
     visible,
@@ -33,9 +34,19 @@ const HandleBottomSheetModalProvider = ({
 
     useEffect(() => {
         if(visible && bottomSheetRef.current) {
-            bottomSheetRef.current.present()
+            bottomSheetRef.current.present();
         }
     }, [visible]);
+
+    useEffect(() => {
+        const isVisible = DeviceEvent.addListener('bottomSheet', () => {
+            bottomSheetRef.current.close();
+        });
+
+        return () => {
+            isVisible.remove();
+        }
+    }, []);
 
     return (
         <GestureHandlerRootView

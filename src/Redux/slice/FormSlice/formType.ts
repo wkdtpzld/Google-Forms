@@ -11,18 +11,12 @@ export enum FormContentTypeInfo {
 }
 
 export interface FormContentTextInfo {
-    question: string;
     answer: string;
 }
 
-export interface FormContentSelectDetailInfo {
+export interface FormContentSelectInfo {
     content: string;
     isSelect: boolean;
-}
-
-export interface FormContentSelectInfo {
-    question: string;
-    answer: FormContentSelectDetailInfo[];
 }
 
 export interface FormContentInfo {
@@ -30,7 +24,7 @@ export interface FormContentInfo {
     type: FormContentTypeInfo;
     title: string;
     textQuestion?: FormContentTextInfo;
-    selectQuestion?: FormContentSelectInfo;
+    selectQuestion?: FormContentSelectInfo[];
 }
 
 export interface FormInfo {

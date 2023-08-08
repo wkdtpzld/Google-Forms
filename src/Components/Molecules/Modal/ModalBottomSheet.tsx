@@ -9,7 +9,7 @@ import {IModalBottomProps} from "@/Components/Molecules/Modal/constants";
 const ModalBottomSheet = ((
     {
         index = 0,
-        snapPoints = ['33%'],
+        snapPoints = ['34%'],
         ...props
     }: IModalBottomProps) => {
     const dispatch = useDispatch();
