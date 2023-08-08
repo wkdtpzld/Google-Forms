@@ -40,5 +40,19 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         marginTop: 4
+    },
+    formFooterWrapperStyle: {
+        paddingHorizontal: 15,
+        paddingTop: 8
+    },
+    formFooterContainer: {
+        justifyContent: "flex-end",
+        flexDirection: 'row',
+        alignItems: 'center',
+        minHeight: 40
+    },
+    flexRowCenter: {
+        flexDirection: 'row',
+        alignItems: 'center'
     }
 });

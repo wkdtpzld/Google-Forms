@@ -4,9 +4,10 @@ import {useSelector} from "react-redux";
 import {StoreProps} from "@/Redux/store/store";
 import {FormContentTypeInfo} from "@/Redux/slice/FormSlice/formType";
 import {styles} from "@/Components/Molecules/Form/style";
-import FormContentHeader from "@/Components/Molecules/Form/FormContent/Header/FormContentHeader";
 import DefaultText from "@/Components/Atom/DefaultText/DefaultText";
-import FormSelector from "@/Components/Molecules/Form/FormContent/Detail/FormSelector";
+import FormSelector from "@/Components/Molecules/Form/FormContent/Content/FormSelector";
+import FormContentHeader from "@/Components/Molecules/Form/FormContent/Header/FormContentHeader";
+import FormFooter from "@/Components/Molecules/Form/FormContent/Footer/FormFooter";
 
 
 interface IProps extends ViewProps {
@@ -21,9 +22,7 @@ const FormContent = ({onSelect, index, ...props}:IProps) => {
 
     return (
         <View {...props}>
-            <View style={styles.formContentBoxStyle}>
-                <FormContentHeader index={index} />
-            </View>
+            <FormContentHeader index={index} />
             {
                 contents[index].type === FormContentTypeInfo.SHORT && (
                     <View style={styles.formContentWrapperStyle}>
@@ -48,6 +47,7 @@ const FormContent = ({onSelect, index, ...props}:IProps) => {
                     <FormSelector index={index} iconType={"checkBox"}/>
                 )
             }
+            <FormFooter index={index} />
         </View>
     )
 }

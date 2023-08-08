@@ -1,7 +1,7 @@
 import React from "react";
 import {NativeStackScreenProps} from "@react-navigation/native-stack";
 import {RootParam} from "@/Navigation";
-import {Platform, StatusBar, View} from "react-native";
+import {Platform, SafeAreaView, StatusBar, View} from "react-native";
 import {useTheme} from "@react-navigation/native";
 import {styles} from "@/Screen/Home/style";
 import Form from "@/Components/Molecules/Form/Form";
@@ -16,7 +16,7 @@ const Home = ({route, navigation}: Props) => {
     const {color} = useTheme();
 
     return (
-        <View style={{flex: 1}}>
+        <SafeAreaView style={{flex: 1}}>
             <StatusBar barStyle={'light-content'}></StatusBar>
             <KeyboardAwareScrollView
                 contentContainerStyle={{flexGrow: 1}}
@@ -35,7 +35,7 @@ const Home = ({route, navigation}: Props) => {
                 <Spacing size={100} type={ISpacingType.height} />
             </KeyboardAwareScrollView>
             <BottomButton />
-        </View>
+        </SafeAreaView>
     );
 };
 

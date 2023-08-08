@@ -45,7 +45,7 @@ const FormContentHeader = ({index}: IProps) => {
     }, [index]);
 
     return (
-        <>
+        <View style={styles.formContentBoxStyle}>
             <View style={styles.formContentTitleStyle}>
                 <DefaultInput
                     value={contents[index].title}
@@ -60,7 +60,7 @@ const FormContentHeader = ({index}: IProps) => {
             >
                 <Icon xml={IconMap.meatball} width={24} height={24} fill={COLOR_CODE.BLACK} />
             </Pressable>
-        </>
+        </View>
     )
 }
 

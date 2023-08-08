@@ -29,7 +29,8 @@ export const InitialContentState: FormContentInfo = {
     title: '',
     textQuestion: {
         answer: ''
-    }
+    },
+    required: false,
 }
 
 const initialFormState: FormInfo = {

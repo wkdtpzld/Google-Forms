@@ -25,6 +25,7 @@ export interface FormContentInfo {
     title: string;
     textQuestion?: FormContentTextInfo;
     selectQuestion?: FormContentSelectInfo[];
+    required: boolean;
 }
 
 export interface FormInfo {

@@ -11,7 +11,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {StoreProps} from "@/Redux/store/store";
 import {styles} from "@/Components/Molecules/Form/style";
 import {createNewContents, iconType, onChangeSelectItem, selectType} from "@/Components/Molecules/Form/utill";
-import FormContentIcon from "@/Components/Molecules/Form/FormContent/Detail/FormContentIcon";
+import FormContentIcon from "@/Components/Molecules/Form/FormContent/Content/FormContentIcon";
 
 interface IProps {
     index: number;

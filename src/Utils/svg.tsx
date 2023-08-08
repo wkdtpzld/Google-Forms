@@ -56,6 +56,22 @@ const checkBox = `
 </svg>
 `
 
+const copy = `
+<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.4286 7.85714V5.57143C12.4286 3.41643 12.4286 2.33895 13.0981 1.66946C13.7675 1 14.845 1 17 1H28.4286C30.5835 1 31.661 1 32.3305 1.66946C33 2.33895 33 3.41643 33 5.57143V17C33 19.155 33 20.2325 32.3305 20.9019C31.661 21.5714 30.5835 21.5714 28.4286 21.5714H26.1429M5.57143 33H17C19.155 33 20.2325 33 20.9019 32.3305C21.5714 31.661 21.5714 30.5835 21.5714 28.4286V17C21.5714 14.845 21.5714 13.7675 20.9019 13.0981C20.2325 12.4286 19.155 12.4286 17 12.4286H5.57143C3.41643 12.4286 2.33895 12.4286 1.66946 13.0981C1 13.7675 1 14.845 1 17V28.4286C1 30.5835 1 31.661 1.66946 32.3305C2.33895 33 3.41643 33 5.57143 33Z" stroke="#464455" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+`
+
+const trash = `
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.66663 10H25.3333L24 28H7.99996L6.66663 10Z" stroke="black" stroke-width="1.3" stroke-linejoin="round"/>
+<path d="M20.6667 12.6667L20 25.3333" stroke="black" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 12.6667V25.3333" stroke="black" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M11.3334 12.6667L12 25.3333" stroke="black" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M21.3333 6.66667H25.3333C26.8061 6.66667 28 7.86057 28 9.33333V10H4V9.33333C4 7.86057 5.19391 6.66667 6.66667 6.66667H10.6667M21.3333 6.66667L20 4H12L10.6667 6.66667M21.3333 6.66667H10.6667" stroke="black" stroke-width="1.3" stroke-linejoin="round"/>
+</svg>
+`
+
 
 export const IconMap = {
     plusSvg,
@@ -64,7 +80,9 @@ export const IconMap = {
     longAnswer,
     circle,
     checkBox,
-    InCircle
+    InCircle,
+    copy,
+    trash
 } as const;
 
 export type IconKey = keyof typeof IconMap;
