@@ -73,10 +73,10 @@ const FormBottomSheetContent = ({index}: IProps) => {
 
     }, [index]);
 
-    const prefixRenderItem = useCallback((icon) => {
+    const prefixRenderItem = useCallback((icon, stroke?: string) => {
         return (
             <>
-                <Icon xml={icon} width={28} height={28} stroke={COLOR_CODE.BLACK}/>
+                <Icon xml={icon} width={28} height={28} stroke={stroke}/>
                 <Spacing size={8} type={ISpacingType.width} />
             </>
         )
@@ -108,7 +108,7 @@ const FormBottomSheetContent = ({index}: IProps) => {
             </BottomSheetButton>
             <BottomSheetButton
                 onPress={() => onPressEvent(FormContentTypeInfo.CHECK)}
-                prefixComponent={prefixRenderItem(IconMap.checkBox)}
+                prefixComponent={prefixRenderItem(IconMap.checkBox, COLOR_CODE.BLACK)}
             >
                 <DefaultText fontType={"semiBold2"}>체크박스</DefaultText>
             </BottomSheetButton>
