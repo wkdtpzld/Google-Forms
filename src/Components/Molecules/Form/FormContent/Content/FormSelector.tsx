@@ -49,7 +49,7 @@ const FormSelector = ({index, iconType}: IProps) => {
                 <View
                     style={styles.formContentRowContent}
                 >
-                    <FormContentIcon iconType={iconType} isSelect />
+                    <FormContentIcon iconType={iconType} isDark />
                     <Spacing size={8} type={ISpacingType.width} />
                     <DefaultInput
                         maxLength={20}

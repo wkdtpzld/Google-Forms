@@ -14,7 +14,7 @@ export const iconSort = {
 
 export type iconType = typeof iconSort[keyof typeof iconSort];
 
-interface onChangeDefaultProps {
+export interface onChangeDefaultProps {
     contents: FormContentInfo[];
     index: number;
     type: string;
@@ -23,16 +23,17 @@ interface onChangeDefaultProps {
 interface onChangeSelectItemProps extends onChangeDefaultProps {
     content: string
     idx: number;
+    isSelect?: boolean;
 }
 
-interface createNewContentsProps extends onChangeDefaultProps {
+export interface createNewContentsProps extends onChangeDefaultProps {
     newSelectList: FormContentSelectInfo[];
 }
 
-export const onChangeSelectItem = ({contents, index, idx, type, content}: onChangeSelectItemProps) => {
+export const onChangeSelectItem = ({contents, index, idx, type, content, isSelect}: onChangeSelectItemProps) => {
     const newSelectList: FormContentSelectInfo[] = [
         ...contents[index][type].slice(0, idx),
-        {isSelect: false, content},
+        {isSelect, content},
         ...contents[index][type].slice(idx + 1)
     ];
 
