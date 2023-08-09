@@ -19,7 +19,6 @@ const FormContent = ({onSelect, index, ...props}:IProps) => {
 
     const contents = useSelector((state:StoreProps) => state.formState.state.content);
 
-
     return (
         <View {...props}>
             <FormContentHeader index={index} />

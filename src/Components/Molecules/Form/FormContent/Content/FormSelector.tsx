@@ -21,6 +21,7 @@ interface IProps {
 const FormSelector = ({index, iconType}: IProps) => {
 
     const contents = useSelector((state:StoreProps) => state.formState.state.content);
+    const content = useSelector((state: StoreProps) => state.formState.state.content[index].selectQuestion)
     const dispatch = useDispatch();
 
     const onPressMultiple = useCallback((type: selectType) => {
@@ -44,7 +45,7 @@ const FormSelector = ({index, iconType}: IProps) => {
     const listRenderItem = useCallback((idx: number) => {
         return (
             <View
-                key={`${index}${idx}${contents[index].title}`}
+                key={idx + index}
             >
                 <View
                     style={styles.formContentRowContent}
@@ -53,9 +54,10 @@ const FormSelector = ({index, iconType}: IProps) => {
                     <Spacing size={8} type={ISpacingType.width} />
                     <DefaultInput
                         maxLength={20}
-                        value={contents[index].selectQuestion[idx].content}
+                        value={content[idx].content}
                         onChange={(e) => onChangeMultipleContent(idx, "selectQuestion", e.nativeEvent.text)}
                         fontType={"medium1"}
+                        fontStyle={{width: '100%'}}
                     />
                 </View>
                 <Spacing size={8} type={ISpacingType.height} />
