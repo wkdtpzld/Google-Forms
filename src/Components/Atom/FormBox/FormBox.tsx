@@ -29,7 +29,7 @@ const FormBox = ({
             <Spacing size={20} type={ISpacingType.height} />
             <View
                 {...props}
-                style={{...viewStyle, borderRadius, minHeight, ...dynamicStyles.formBoxStyle}}
+                style={{borderRadius, minHeight, ...dynamicStyles.formBoxStyle, ...viewStyle}}
             >
                 <View
                     style={dynamicStyles.formHeadBorder}

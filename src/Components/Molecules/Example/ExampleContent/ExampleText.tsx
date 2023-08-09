@@ -4,13 +4,28 @@ import Separator from "@/Components/Atom/Separator/Separator";
 import {ISpacingType} from "@/Components/Atom/Spacing/Spacing";
 import {styles} from "@/Components/Molecules/Example/style";
 import DefaultInput from "@/Components/Atom/DefaultInput/DefaultInput";
-import {FormContentTypeInfo} from "@/Redux/slice/FormSlice/formType";
+import {FormContentInfo, FormContentTypeInfo} from "@/Redux/slice/FormSlice/formType";
+import {useDispatch, useSelector} from "react-redux";
+import {StoreProps} from "@/Redux/store/store";
+import {Content} from "@/Components/Molecules/Form/FormContent/Header/FormContentHeader";
+import {onChangeForm} from "@/Redux/slice/FormSlice/formSlice";
 
 interface IProps {
     type: FormContentTypeInfo;
+    index: number;
 }
 
-const ExampleText = ({type}: IProps) => {
+const ExampleText = ({type, index}: IProps) => {
+
+    const contents = useSelector((state: StoreProps) => state.formState.state.content);
+    const dispatch = useDispatch();
+
+    const onChangeEvent = (text: string) => {
+
+        const newContent: FormContentInfo = {...contents[index], textQuestion: {answer: text}};
+        const newContents: Content = {content: [...contents.slice(0, index), newContent, ...contents.slice(index + 1)]};
+        dispatch(onChangeForm<Content>(newContents));
+    }
 
     if (type !== FormContentTypeInfo.SHORT && type !== FormContentTypeInfo.LONG) {
         return;
@@ -27,6 +42,8 @@ const ExampleText = ({type}: IProps) => {
                 {
                     type === FormContentTypeInfo.SHORT && (
                         <DefaultInput
+                            value={contents[index].textQuestion.answer}
+                            onChange={(e) => onChangeEvent(e.nativeEvent.text)}
                             fontType={"medium1"}
                             placeholder={'단답형'}
                             maxLength={100}

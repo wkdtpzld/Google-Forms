@@ -12,7 +12,7 @@ const ExampleContainer = ({...props}: ViewProps) => {
     const style = dynamicStyle(color.MAIN_LIGHT);
 
     return (
-        <View style={style.ExampleContainer}>
+        <View style={style.ExampleContainer} {...props}>
             <ExampleHeader />
             <ExampleContent />
             <Spacing size={50} type={ISpacingType.height} />
