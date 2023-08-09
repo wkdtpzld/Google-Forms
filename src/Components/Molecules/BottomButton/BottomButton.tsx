@@ -14,7 +14,7 @@ const BottomButton = () => {
     const dispatch = useDispatch();
 
     const onPressEvent = () => {
-        const newContentList = [...formContent, {...InitialContentState, id: formContent.length}];
+        const newContentList = [...formContent, {...InitialContentState, id: formContent.length + 1}];
         dispatch(onAppendForm(newContentList));
     }
 

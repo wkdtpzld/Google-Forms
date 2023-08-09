@@ -14,13 +14,14 @@ import {FormContentInfo} from "@/Redux/slice/FormSlice/formType";
 
 interface IProps {
     index: number;
+    drag: () => void;
 }
 
 export interface Content {
-    content: FormContentInfo[]
+    content: FormContentInfo[];
 }
 
-const FormContentHeader = ({index}: IProps) => {
+const FormContentHeader = ({index, drag}: IProps) => {
 
     const contents = useSelector((state:StoreProps) => state.formState.state.content);
     const dispatch = useDispatch();
@@ -45,22 +46,30 @@ const FormContentHeader = ({index}: IProps) => {
     }, [index]);
 
     return (
-        <View style={styles.formContentBoxStyle}>
-            <View style={styles.formContentTitleStyle}>
-                <DefaultInput
-                    value={contents[index].title}
-                    placeholder={'제목'}
-                    fontType={"medium2"}
-                    onChange={(e) => onChange(e.nativeEvent.text, 'title')}
-                />
-            </View>
+        <>
             <Pressable
-                style={styles.formContentMoreButtonBoxStyle}
-                onPress={() => onClickMoreButton(index)}
+                style={styles.formDragBox}
+                onLongPress={drag}
             >
-                <Icon xml={IconMap.meatball} width={24} height={24} fill={COLOR_CODE.BLACK} />
+                <Icon xml={IconMap.hamburger} width={24} height={24} stroke={COLOR_CODE.BLACK}/>
             </Pressable>
-        </View>
+            <View style={styles.formContentBoxStyle}>
+                <View style={styles.formContentTitleStyle}>
+                    <DefaultInput
+                        value={contents[index].title}
+                        placeholder={'제목'}
+                        fontType={"medium2"}
+                        onChange={(e) => onChange(e.nativeEvent.text, 'title')}
+                    />
+                </View>
+                <Pressable
+                    style={styles.formContentMoreButtonBoxStyle}
+                    onPress={() => onClickMoreButton(index)}
+                >
+                    <Icon xml={IconMap.meatball} width={24} height={24} fill={COLOR_CODE.BLACK} />
+                </Pressable>
+            </View>
+        </>
     )
 }
 

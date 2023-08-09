@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         paddingLeft: 15,
-        paddingVertical: 12
+        paddingBottom: 12
     },
     formContentTitleStyle: {
         backgroundColor: COLOR_CODE.GRAY_150,
@@ -54,5 +54,16 @@ export const styles = StyleSheet.create({
     flexRowCenter: {
         flexDirection: 'row',
         alignItems: 'center'
+    },
+    formDragBox: {
+        height: 24,
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    formExample: {
+        justifyContent: 'center',
+        alignItems: 'flex-end',
+        paddingTop: 12
     }
 });

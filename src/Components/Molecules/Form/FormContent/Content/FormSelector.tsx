@@ -50,7 +50,7 @@ const FormSelector = ({index, iconType}: IProps) => {
                 <View
                     style={styles.formContentRowContent}
                 >
-                    <FormContentIcon iconType={iconType} isDark />
+                    <FormContentIcon iconType={iconType} isSelect isDark />
                     <Spacing size={8} type={ISpacingType.width} />
                     <DefaultInput
                         maxLength={20}
@@ -77,7 +77,7 @@ const FormSelector = ({index, iconType}: IProps) => {
                     onPress={() => onPressMultiple("selectQuestion")}
                     style={styles.formContentAppendContent}
                 >
-                    <FormContentIcon iconType={iconType} />
+                    <FormContentIcon iconType={iconType}  />
                     <Spacing size={8} type={ISpacingType.width} />
                     <DefaultText
                         fontType={"medium1"}

@@ -24,7 +24,7 @@ export const InitialCheckContentState: FormContentSelectInfo[] = [{
 }]
 
 export const InitialContentState: FormContentInfo = {
-    id: 0,
+    id: 1,
     type: FormContentTypeInfo.SHORT,
     title: '',
     textQuestion: {
@@ -34,7 +34,7 @@ export const InitialContentState: FormContentInfo = {
 }
 
 const initialFormState: FormInfo = {
-    id: -1,
+    id: 1,
     header: {
         title: '제목을 지어주세요.',
         description: ''
