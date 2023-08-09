@@ -46,14 +46,10 @@ const initialState: FormState = {
     state: initialFormState
 };
 
-
 const formSlice = createSlice({
     name: "form",
     initialState,
     reducers: {
-        resetForm(state) {
-            state.state = initialFormState;
-        },
         onChangeForm<T>(state: FormState, action: PayloadAction<T>) {
             state.state = {...state.state, ...action.payload};
         },
@@ -64,7 +60,7 @@ const formSlice = createSlice({
 });
 
 export const {
-    resetForm, onChangeForm, onAppendForm
+    onChangeForm, onAppendForm
 } = formSlice.actions;
 
 export default formSlice.reducer;
