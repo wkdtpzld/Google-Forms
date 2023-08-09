@@ -13,12 +13,12 @@ const CircleIcon = ({isDark, isSelect}: IProps) => {
     return (
         <>
             {isDark && isSelect && (
-                <Icon xml={IconMap.circle} width={21} height={21} fill={COLOR_CODE.BLACK}/>
+                <Icon xml={IconMap.circle} width={19} height={19} fill={COLOR_CODE.BLACK}/>
             )}
-            {!isDark && isSelect && (
+            {!isSelect && isDark && (
                 <Icon xml={IconMap.InCircle} width={19} height={19} fill={COLOR_CODE.BLACK}/>
             )}
-            {!isSelect && (
+            {!isDark && (
                 <Icon xml={IconMap.InCircle} width={19} height={19} fill={COLOR_CODE.GRAY_500}/>
             )}
         </>
