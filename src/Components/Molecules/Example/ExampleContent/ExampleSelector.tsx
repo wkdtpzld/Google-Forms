@@ -10,6 +10,7 @@ import {createNewContents, iconType, onChangeSelectItem, selectType} from "@/Com
 import {onChangeForm} from "@/Redux/slice/FormSlice/formSlice";
 import {Content} from "@/Components/Molecules/Form/FormContent/Header/FormContentHeader";
 import {styles} from "@/Components/Molecules/Example/style";
+import {FormContentSelectInfo} from "@/Redux/slice/FormSlice/formType";
 
 interface IProps {
     index: number;
@@ -21,8 +22,22 @@ const ExampleSelector = ({index, iconType}: IProps) => {
     const contents = useSelector((state: StoreProps) => state.formState.state.content);
     const dispatch = useDispatch();
 
+    const createNewSelectItem = (idx: number, isSelect: boolean, content: string, type: selectType) => {
+        if (iconType === "circle") {
+            const newSelectList: FormContentSelectInfo[] = contents[index].selectQuestion.map((item, i) => {
+                if (i === idx) {
+                    return {...item, isSelect}
+                }
+                return {...item, isSelect: false}
+            });
+            return newSelectList;
+        } else {
+            return onChangeSelectItem({content, index, idx, type, contents, isSelect});
+        }
+    }
+
     const onChangeMultipleContent = useCallback((idx: number, type: selectType, content: string, isSelect: boolean) => {
-        const newSelectList = onChangeSelectItem({content, index, idx, type, contents, isSelect});
+        const newSelectList = createNewSelectItem(idx, isSelect, content, type);
         const newContents = createNewContents({contents, type, newSelectList, index});
         dispatch(onChangeForm<Content>(newContents));
     },[contents]);
@@ -36,7 +51,9 @@ const ExampleSelector = ({index, iconType}: IProps) => {
             <Spacing size={12} type={ISpacingType.height} />
             {contents[index].selectQuestion?.map((item, idx) => {
                 return (
-                    <>
+                    <View
+                        key={`${item.content}${idx}`}
+                    >
                         <View
                             style={styles.ExampleContentRowContent}
                         >
@@ -51,7 +68,7 @@ const ExampleSelector = ({index, iconType}: IProps) => {
                             </DefaultText>
                         </View>
                         <Spacing size={16} type={ISpacingType.height} />
-                    </>
+                    </View>
                 )
             })}
         </View>

@@ -42,7 +42,7 @@ const FormSelector = ({index, iconType}: IProps) => {
     /**
      * @description 리스트 렌더링 아이템 분리
      */
-    const listRenderItem = useCallback((idx: number) => {
+    const ListRenderItem = useCallback((idx: number) => {
         return (
             <View
                 key={idx + index}
@@ -71,7 +71,7 @@ const FormSelector = ({index, iconType}: IProps) => {
                 style={styles.formContentStyle}
             >
                 {contents[index].selectQuestion.map((_, idx) => (
-                    listRenderItem(idx)
+                    ListRenderItem(idx)
                 ))}
                 <Pressable
                     onPress={() => onPressMultiple("selectQuestion")}
@@ -82,7 +82,9 @@ const FormSelector = ({index, iconType}: IProps) => {
                     <DefaultText
                         fontType={"medium1"}
                         fontStyle={{color: COLOR_CODE.GRAY_500}}
-                    >{`옵션 추가`}</DefaultText>
+                    >
+                        {`옵션 추가`}
+                    </DefaultText>
                 </Pressable>
             </View>
         </View>

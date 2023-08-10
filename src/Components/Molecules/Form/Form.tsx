@@ -11,11 +11,15 @@ import FormToExample from "@/Components/Molecules/Form/FormHeader/FormToExample"
 import {FormContentInfo} from "@/Redux/slice/FormSlice/formType";
 import {onChangeForm} from "@/Redux/slice/FormSlice/formSlice";
 import {Content} from "@/Components/Molecules/Form/FormContent/Header/FormContentHeader";
+import {styles} from "@/Screen/Home/style";
+import {View} from "react-native";
+import {useTheme} from "@react-navigation/native";
 
 const Form = () => {
 
-    const formContents = useSelector((state: StoreProps) => state.formState.state.content);
+    const formContents: FormContentInfo[] = useSelector((state: StoreProps) => state.formState.state.content);
     const dispatch = useDispatch();
+    const {color} = useTheme();
     const onDragEnd = (to: number, from: number) => {
 
         const copyData: FormContentInfo[] = [...formContents];
@@ -50,8 +54,14 @@ const Form = () => {
         )
     }, []);
 
+    /**
+     * @description ListHeader, ListFooter () => 사용이유
+     * 사용하지 않았을 경우 DraggableFlatList 에서 validation error 를 내놓을 경우가 있어 사용하였습니다.
+     */
     return (
-        <>
+        <View
+            style={styles(color.MAIN_LIGHT).homeWrapper}
+        >
             <FormToExample />
             <DraggableFlatList
                 data={formContents}
@@ -63,7 +73,7 @@ const Form = () => {
                 renderItem={renderItem}
                 onDragEnd={({from, to}) => onDragEnd(to, from)}
             />
-        </>
+        </View>
     )
 }
 

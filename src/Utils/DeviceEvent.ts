@@ -1,11 +1,5 @@
 import {DeviceEventEmitter} from "react-native";
 
-export interface IDeviceEventEmitterModel<T> {
-    type: DeviceEventType;
-    listener: (data: T) => void;
-    context?: any;
-}
-
 export type DeviceEventType = keyof typeof DeviceEvent.type;
 
 class DeviceEvent {
