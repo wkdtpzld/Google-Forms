@@ -6,13 +6,7 @@ import DefaultText from "@/Components/Atom/DefaultText/DefaultText";
 import Icon from "@/Components/Atom/Icon/Icon";
 import {IconMap} from "@/Utils/svg";
 import Spacing from "@/Components/Atom/Spacing/Spacing";
-import {
-    InitialCheckContentState,
-    InitialLongContentState,
-    InitialMultipleContentState,
-    InitialShortContentState,
-    onChangeForm
-} from "@/Redux/slice/FormSlice/formSlice";
+import {InitialChangeContentState, onChangeForm} from "@/Redux/slice/FormSlice/formSlice";
 import {FormContentInfo, FormContentTypeInfo} from "@/Redux/slice/FormSlice/formType";
 import {StoreProps} from "@/Redux/store/store";
 import {Content} from "@/Components/Molecules/Form/FormContent/Header/FormContentHeader";
@@ -29,38 +23,7 @@ const FormBottomSheetContent = ({index}: IProps) => {
     const content = useSelector((state: StoreProps) => state.formState.state.content);
 
     const createContent = (content: FormContentInfo[], type: FormContentTypeInfo): FormContentInfo => {
-        if (type === FormContentTypeInfo.SHORT) {
-            return {
-                ...content[index],
-                type,
-                textQuestion: InitialShortContentState,
-                selectQuestion: undefined
-            }
-        }
-        if (type === FormContentTypeInfo.LONG) {
-            return {
-                ...content[index],
-                type,
-                textQuestion: InitialLongContentState,
-                selectQuestion: undefined
-            }
-        }
-        if (type === FormContentTypeInfo.MULTIPLE) {
-            return {
-                ...content[index],
-                type,
-                textQuestion: undefined,
-                selectQuestion: InitialMultipleContentState
-            }
-        }
-        if (type === FormContentTypeInfo.CHECK) {
-            return {
-                ...content[index],
-                type,
-                textQuestion: undefined,
-                selectQuestion: InitialCheckContentState
-            }
-        }
+        return InitialChangeContentState(content, type, index)[type];
     }
 
     const onPressEvent = useCallback((type) => {

@@ -21,8 +21,39 @@ export const InitialMultipleContentState: FormContentSelectInfo[] = [{
 
 export const InitialCheckContentState: FormContentSelectInfo[] = [{
     content: '옵션 1', isSelect: false
-}]
+}];
 
+const defaultChangeState = (content: FormContentInfo[], type: FormContentTypeInfo, index: number) => {
+    return {
+        ...content[index],
+        type,
+    }
+}
+
+export const InitialChangeContentState = (content: FormContentInfo[], type: FormContentTypeInfo, index: number) => {
+    return {
+        SHORT: {
+            ...defaultChangeState(content, type, index),
+            textQuestion: InitialShortContentState,
+            selectQuestion: undefined
+        },
+        LONG: {
+            ...defaultChangeState(content, type, index),
+            textQuestion: InitialLongContentState,
+            selectQuestion: undefined
+        },
+        MULTIPLE: {
+            ...defaultChangeState(content, type, index),
+            textQuestion: undefined,
+            selectQuestion: InitialMultipleContentState
+        },
+        CHECK: {
+            ...defaultChangeState(content, type, index),
+            textQuestion: undefined,
+            selectQuestion: InitialCheckContentState
+        }
+    }
+};
 export const InitialContentState: FormContentInfo = {
     id: 1,
     type: FormContentTypeInfo.SHORT,
