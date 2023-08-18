@@ -1,4 +1,5 @@
 import '@react-navigation/native'
+import {Theme} from "@react-navigation/native/src/types";
 
 declare module '@react-navigation/native' {
     export type ExtendTheme = {
@@ -29,5 +30,5 @@ declare module '@react-navigation/native' {
             MAIN_DARK: string;
         }
     }
-    export function useTheme(): ExtendTheme;
+    export function useTheme(): ExtendTheme & Theme;
 }

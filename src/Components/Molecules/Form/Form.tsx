@@ -12,7 +12,7 @@ import {FormContentInfo} from "@/Redux/slice/FormSlice/formType";
 import {onChangeForm} from "@/Redux/slice/FormSlice/formSlice";
 import {Content} from "@/Components/Molecules/Form/FormContent/Header/FormContentHeader";
 import {styles} from "@/Screen/Home/style";
-import {FlatList, Keyboard, Pressable, View} from "react-native";
+import {FlatList, Keyboard, Pressable} from "react-native";
 import {useTheme} from "@react-navigation/native";
 
 const Form = () => {
