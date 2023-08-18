@@ -1,4 +1,4 @@
-import React, {useCallback} from "react";
+import React, {useCallback, useRef} from "react";
 import {FORM_TYPE} from "@/Components/Atom/FormBox";
 import FormBox from "@/Components/Atom/FormBox/FormBox";
 import FormHeader from "@/Components/Molecules/Form/FormHeader/FormHeader";
@@ -12,7 +12,7 @@ import {FormContentInfo} from "@/Redux/slice/FormSlice/formType";
 import {onChangeForm} from "@/Redux/slice/FormSlice/formSlice";
 import {Content} from "@/Components/Molecules/Form/FormContent/Header/FormContentHeader";
 import {styles} from "@/Screen/Home/style";
-import {View} from "react-native";
+import {FlatList, Keyboard, Pressable, View} from "react-native";
 import {useTheme} from "@react-navigation/native";
 
 const Form = () => {
@@ -20,6 +20,12 @@ const Form = () => {
     const formContents: FormContentInfo[] = useSelector((state: StoreProps) => state.formState.state.content);
     const dispatch = useDispatch();
     const {color} = useTheme();
+    const ref = useRef<FlatList>(null);
+
+    const onClickScrollEvent = (index: number) => {
+        ref.current.scrollToIndex({animated: true, index: index});
+    }
+
     const onDragEnd = (to: number, from: number) => {
 
         const copyData: FormContentInfo[] = [...formContents];
@@ -49,7 +55,7 @@ const Form = () => {
                 borderRadius={4}
                 formType={FORM_TYPE.CONTENT}
             >
-                <FormContent drag={drag} getIndex={getIndex} item={item} />
+                <FormContent drag={drag} getIndex={getIndex} item={item} onClick={onClickScrollEvent} />
             </FormBox>
         )
     }, []);
@@ -59,11 +65,13 @@ const Form = () => {
      * 사용하지 않았을 경우 DraggableFlatList 에서 validation error 를 내놓을 경우가 있어 사용하였습니다.
      */
     return (
-        <View
+        <Pressable
+            onPress={Keyboard.dismiss}
             style={styles(color.MAIN_LIGHT).homeWrapper}
         >
             <FormToExample />
             <DraggableFlatList
+                ref={ref}
                 data={formContents}
                 keyExtractor={item => item.id}
                 bounces={false}
@@ -73,7 +81,7 @@ const Form = () => {
                 renderItem={renderItem}
                 onDragEnd={({from, to}) => onDragEnd(to, from)}
             />
-        </View>
+        </Pressable>
     )
 }
 

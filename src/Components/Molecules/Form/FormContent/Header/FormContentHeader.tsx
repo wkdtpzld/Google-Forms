@@ -15,13 +15,14 @@ import {FormContentInfo} from "@/Redux/slice/FormSlice/formType";
 interface IProps {
     index: number;
     drag: () => void;
+    onClick: (index: number) => void;
 }
 
 export interface Content {
     content: FormContentInfo[];
 }
 
-const FormContentHeader = ({index, drag}: IProps) => {
+const FormContentHeader = ({index, drag, onClick}: IProps) => {
 
     const contents = useSelector((state:StoreProps) => state.formState.state.content);
     const dispatch = useDispatch();
@@ -56,6 +57,7 @@ const FormContentHeader = ({index, drag}: IProps) => {
             <View style={styles.formContentBoxStyle}>
                 <View style={styles.formContentTitleStyle}>
                     <DefaultInput
+                        onFocus={() => onClick(index)}
                         value={contents[index].title}
                         placeholder={'제목'}
                         fontType={"medium2"}

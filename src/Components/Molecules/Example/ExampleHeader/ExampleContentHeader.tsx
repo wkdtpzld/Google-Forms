@@ -1,7 +1,6 @@
 import React from "react";
 import {styles} from "@/Components/Molecules/Example/style";
 import DefaultText from "@/Components/Atom/DefaultText/DefaultText";
-import {COLOR_CODE} from "@/Common/globalStyle";
 import {View} from "react-native";
 import {useSelector} from "react-redux";
 import {StoreProps} from "@/Redux/store/store";

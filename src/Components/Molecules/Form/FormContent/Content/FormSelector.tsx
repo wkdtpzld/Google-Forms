@@ -16,9 +16,10 @@ import FormContentIcon from "@/Components/Molecules/Form/FormContent/Content/For
 interface IProps {
     index: number;
     iconType: iconType;
+    onClick: (number) => void;
 }
 
-const FormSelector = ({index, iconType}: IProps) => {
+const FormSelector = ({index, iconType, onClick}: IProps) => {
 
     const contents = useSelector((state:StoreProps) => state.formState.state.content);
     const content = useSelector((state: StoreProps) => state.formState.state.content[index].selectQuestion)
@@ -53,6 +54,7 @@ const FormSelector = ({index, iconType}: IProps) => {
                     <FormContentIcon iconType={iconType} isSelect isDark />
                     <Spacing size={8} type={"width"} />
                     <DefaultInput
+                        onFocus={() => onClick(index)}
                         maxLength={20}
                         value={content[idx].content}
                         onChange={(e) => onChangeMultipleContent(idx, "selectQuestion", e.nativeEvent.text)}

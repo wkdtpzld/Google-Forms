@@ -8,7 +8,11 @@ import FormContentHeader from "@/Components/Molecules/Form/FormContent/Header/Fo
 import FormFooter from "@/Components/Molecules/Form/FormContent/Footer/FormFooter";
 import {OpacityDecorator, RenderItemParams} from "react-native-draggable-flatlist";
 
-const FormContent = ({getIndex, item, drag}: Omit<RenderItemParams<FormContentInfo>, "isActive">) => {
+interface IProps extends Omit<RenderItemParams<FormContentInfo>, "isActive"> {
+    onClick: (index: number) => void;
+}
+
+const FormContent = ({getIndex, item, drag, onClick}: IProps) => {
 
     const index = getIndex();
 
@@ -17,7 +21,7 @@ const FormContent = ({getIndex, item, drag}: Omit<RenderItemParams<FormContentIn
             { index !== undefined ?  (
                 <OpacityDecorator>
                     <View>
-                        <FormContentHeader index={index} drag={drag} />
+                        <FormContentHeader index={index} drag={drag} onClick={onClick}/>
                         {
                             item.type === FormContentTypeInfo.SHORT && (
                                 <View style={styles.formContentWrapperStyle}>
@@ -34,12 +38,12 @@ const FormContent = ({getIndex, item, drag}: Omit<RenderItemParams<FormContentIn
                         }
                         {
                             item.type === FormContentTypeInfo.MULTIPLE && (
-                                <FormSelector index={index} iconType={"circle"}/>
+                                <FormSelector index={index} iconType={"circle"} onClick={onClick} />
                             )
                         }
                         {
                             item.type === FormContentTypeInfo.CHECK && (
-                                <FormSelector index={index} iconType={"checkBox"}/>
+                                <FormSelector index={index} iconType={"checkBox"} onClick={onClick} />
                             )
                         }
                         <FormFooter index={index} />
