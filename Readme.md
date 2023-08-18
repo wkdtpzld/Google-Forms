@@ -104,6 +104,15 @@ Form 컴포넌트 기반으로 여러 유형으로 쪼개서 생성
 
 - BottomSheet 사용
 
+---
+
+제출 이후 추가 작업 내용
+
+- DraggableFlatList scrollToIndex 이벤트 추가 ( 하단 컨텐츠 입력시 키보드가 컨텐츠를 가리는 현상이 발생하여 개선 )
+- bottomSheetItem createContent 함수 리팩토링 진행 ( if 문 남발로 가독성이 좋지 않아 리팩토링 진행 )
+- enum, typeof keys 이 혼합되어 사용되고 있어 변경이 필요하다고 판단되어 typeof keys 로 통일 리팩토링 진행
+- bottomSheet Android 높이가 짧을 경우 화면이 안보이는 이슈가 발생하여 바텀시트의 높이를 고정값으로 변경
+- globalTheme 의 기본타입의 변경을 혼합으로 변경 리팩토링
 
 
 
