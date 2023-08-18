@@ -1,7 +1,7 @@
 import React from "react";
 import {View} from "react-native";
 import Separator from "@/Components/Atom/Separator/Separator";
-import Spacing, {ISpacingType} from "@/Components/Atom/Spacing/Spacing";
+import Spacing from "@/Components/Atom/Spacing/Spacing";
 import Switch from "@/Components/Atom/Switch/Switch";
 import {styles} from "@/Components/Molecules/Form/style";
 import FooterCopy from "@/Components/Molecules/Form/FormContent/Footer/FooterCopy";
@@ -15,11 +15,11 @@ const FormFooter = ({index}: IProps) => {
 
     return (
         <View style={styles.formFooterWrapperStyle}>
-            <Separator type={ISpacingType.width}/>
+            <Separator type={"width"}/>
             <View style={styles.formFooterContainer}>
                 <View style={styles.flexRowCenter}>
                     <FooterCopy index={index} />
-                    <Spacing size={8} type={ISpacingType.width} />
+                    <Spacing size={8} type={"width"} />
                     <FooterDelete index={index} />
                     <Switch index={index} />
                 </View>

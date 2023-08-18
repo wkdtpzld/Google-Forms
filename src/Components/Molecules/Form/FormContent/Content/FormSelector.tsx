@@ -2,7 +2,7 @@ import React, {useCallback} from "react";
 import DefaultText from "@/Components/Atom/DefaultText/DefaultText";
 import {Pressable, View} from "react-native";
 import {COLOR_CODE} from "@/Common/globalStyle";
-import Spacing, {ISpacingType} from "@/Components/Atom/Spacing/Spacing";
+import Spacing from "@/Components/Atom/Spacing/Spacing";
 import DefaultInput from "@/Components/Atom/DefaultInput/DefaultInput";
 import {FormContentSelectInfo} from "@/Redux/slice/FormSlice/formType";
 import {onChangeForm} from "@/Redux/slice/FormSlice/formSlice";
@@ -51,7 +51,7 @@ const FormSelector = ({index, iconType}: IProps) => {
                     style={styles.formContentRowContent}
                 >
                     <FormContentIcon iconType={iconType} isSelect isDark />
-                    <Spacing size={8} type={ISpacingType.width} />
+                    <Spacing size={8} type={"width"} />
                     <DefaultInput
                         maxLength={20}
                         value={content[idx].content}
@@ -60,7 +60,7 @@ const FormSelector = ({index, iconType}: IProps) => {
                         fontStyle={{width: '100%'}}
                     />
                 </View>
-                <Spacing size={8} type={ISpacingType.height} />
+                <Spacing size={8} type={"height"} />
             </View>
         )
     }, [contents]);
@@ -78,7 +78,7 @@ const FormSelector = ({index, iconType}: IProps) => {
                     style={styles.formContentAppendContent}
                 >
                     <FormContentIcon iconType={iconType}  />
-                    <Spacing size={8} type={ISpacingType.width} />
+                    <Spacing size={8} type={"width"} />
                     <DefaultText
                         fontType={"medium1"}
                         fontStyle={{color: COLOR_CODE.GRAY_500}}

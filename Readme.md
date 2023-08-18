@@ -60,13 +60,13 @@ npx create-expo-app (Typescript) 생성
 
 ## 구현 요소
 
-[ ] 설문 제목 추가, 편집 / 설문 설명 추가, 편집
+[x] 설문 제목 추가, 편집 / 설문 설명 추가, 편집
 - Form 컴포넌트 제작
   - FormBox, FormHeader, FormContent 분리
   - FormSlice 내부 상태관리 Redux 생성
 
 
-[ ] 설문 추가하기 버튼 클릭시 설문 추가
+[x] 설문 추가하기 버튼 클릭시 설문 추가
 - 단답형 컴포넌트
 - 장문형 컴포넌트
 - 객관신 질문 컴포넌트
@@ -84,12 +84,12 @@ Form 컴포넌트 기반으로 여러 유형으로 쪼개서 생성
      - BottomSheet Provider 와 분리하여 사용
    - FormFooter (FormFooter 복사 삭제 필수 등등)
 
-[ ] 설문 복사 기능 / 설문 삭제 기능  / 필수 옵션 설정 기능
+[x] 설문 복사 기능 / 설문 삭제 기능  / 필수 옵션 설정 기능
 - FormFooter 복사 / 삭제 / 필수/ 기능 구현
 
 ## **추가과제!**
 
-[ ] Drag And Drop 기능 구현
+[x] Drag And Drop 기능 구현
 - react-native-draggable-flatlist 기반으로 드래그 기능 구현
 - FormHeader 위치에 드래그 아이콘을 길게 누를 경우
 - OpacityScale 이 내려가며 드래그 가능한 상태로 변경됩니다.

@@ -1,6 +1,6 @@
 import React, {useCallback} from "react";
 import Separator from "@/Components/Atom/Separator/Separator";
-import Spacing, {ISpacingType} from "@/Components/Atom/Spacing/Spacing";
+import Spacing from "@/Components/Atom/Spacing/Spacing";
 import {Pressable, View} from "react-native";
 import FormContentIcon from "@/Components/Molecules/Form/FormContent/Content/FormContentIcon";
 import DefaultText from "@/Components/Atom/DefaultText/DefaultText";
@@ -47,8 +47,8 @@ const ExampleSelector = ({index, iconType}: IProps) => {
             key={`${index}${contents[index].id}`}
             style={styles.ExampleContentContainer}
         >
-            <Separator type={ISpacingType.width} />
-            <Spacing size={12} type={ISpacingType.height} />
+            <Separator type={"width"} />
+            <Spacing size={12} type={"height"} />
             {contents[index].selectQuestion?.map((item, idx) => {
                 return (
                     <View
@@ -62,12 +62,12 @@ const ExampleSelector = ({index, iconType}: IProps) => {
                             >
                                 <FormContentIcon iconType={iconType} isSelect={item.isSelect} isDark />
                             </Pressable>
-                            <Spacing size={8} type={ISpacingType.width} />
+                            <Spacing size={8} type={"width"} />
                             <DefaultText fontType={"medium1"}>
                                 {item.content}
                             </DefaultText>
                         </View>
-                        <Spacing size={16} type={ISpacingType.height} />
+                        <Spacing size={16} type={"height"} />
                     </View>
                 )
             })}

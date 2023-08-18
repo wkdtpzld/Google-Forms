@@ -1,6 +1,6 @@
 import React from "react";
 import DefaultInput from "@/Components/Atom/DefaultInput/DefaultInput";
-import Spacing, {ISpacingType} from "@/Components/Atom/Spacing/Spacing";
+import Spacing from "@/Components/Atom/Spacing/Spacing";
 import {styles} from "@/Components/Molecules/Form/style";
 import {View} from "react-native";
 import {useDispatch, useSelector} from "react-redux";
@@ -34,7 +34,7 @@ const FormHeader = () => {
                 maxLength={30}
             >
             </DefaultInput>
-            <Spacing size={12} type={ISpacingType.height} />
+            <Spacing size={12} type={"height"} />
             <DefaultInput
                 fontType={"medium2"}
                 multiline={true}

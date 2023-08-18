@@ -1,10 +1,12 @@
 import React from "react";
 import {View} from "react-native";
 
-export enum ISpacingType {
-    width = 'width',
-    height = 'height',
-}
+export const ISpacingObject = {
+    width: 'width',
+    height: 'height'
+} as const;
+
+export type ISpacingType = typeof ISpacingObject[keyof typeof ISpacingObject];
 
 interface IProps {
     size: number;

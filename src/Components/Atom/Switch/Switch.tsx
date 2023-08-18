@@ -7,7 +7,6 @@ import {onChangeForm} from "@/Redux/slice/FormSlice/formSlice";
 import {Content} from "@/Components/Molecules/Form/FormContent/Header/FormContentHeader";
 import {FormContentInfo} from "@/Redux/slice/FormSlice/formType";
 import Separator from "@/Components/Atom/Separator/Separator";
-import {ISpacingType} from "@/Components/Atom/Spacing/Spacing";
 import DefaultText from "@/Components/Atom/DefaultText/DefaultText";
 
 interface IProps {
@@ -42,7 +41,7 @@ const Switch = ({index}: IProps) => {
 
     return (
         <>
-            <Separator type={ISpacingType.height}/>
+            <Separator type={"height"}/>
             <DefaultText fontType={"medium1"} >필수</DefaultText>
             <View style={styles.switchWrapper}>
                 <Pressable

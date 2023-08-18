@@ -1,7 +1,6 @@
 import React from "react";
 import {View} from "react-native";
 import Separator from "@/Components/Atom/Separator/Separator";
-import {ISpacingType} from "@/Components/Atom/Spacing/Spacing";
 import {styles} from "@/Components/Molecules/Example/style";
 import DefaultInput from "@/Components/Atom/DefaultInput/DefaultInput";
 import {FormContentInfo, FormContentTypeInfo} from "@/Redux/slice/FormSlice/formType";
@@ -36,7 +35,7 @@ const ExampleText = ({type, index}: IProps) => {
             <View
                 style={styles.ExampleContentContainer}
             >
-                <Separator type={ISpacingType.width} />
+                <Separator type={"width"} />
             </View>
             <View style={styles.ExampleHeaderBox}>
                 {

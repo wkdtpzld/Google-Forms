@@ -17,21 +17,19 @@ export const navigationRef = createNavigationContainerRef();
 export const RootNavigator = () => {
 
     return (
-        <>
-            <NavigationContainer
-                ref={navigationRef}
-                theme={MyTheme}
+        <NavigationContainer
+            ref={navigationRef}
+            theme={MyTheme}
+        >
+            <RootStack.Navigator
+                initialRouteName={"Home"}
+                screenOptions={{headerShown: false}}
             >
-                <RootStack.Navigator
-                    initialRouteName={"Home"}
-                    screenOptions={{headerShown: false}}
-                >
-                    <RootStack.Group>
-                        <RootStack.Screen name="Home" component={Home} />
-                        <RootStack.Screen name="Example" component={Example} />
-                    </RootStack.Group>
-                </RootStack.Navigator>
-            </NavigationContainer>
-        </>
+                <RootStack.Group>
+                    <RootStack.Screen name="Home" component={Home} />
+                    <RootStack.Screen name="Example" component={Example} />
+                </RootStack.Group>
+            </RootStack.Navigator>
+        </NavigationContainer>
     )
 }

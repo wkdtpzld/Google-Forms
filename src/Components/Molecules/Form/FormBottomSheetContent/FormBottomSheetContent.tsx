@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import DefaultText from "@/Components/Atom/DefaultText/DefaultText";
 import Icon from "@/Components/Atom/Icon/Icon";
 import {IconMap} from "@/Utils/svg";
-import Spacing, {ISpacingType} from "@/Components/Atom/Spacing/Spacing";
+import Spacing from "@/Components/Atom/Spacing/Spacing";
 import {
     InitialCheckContentState,
     InitialLongContentState,
@@ -77,7 +77,7 @@ const FormBottomSheetContent = ({index}: IProps) => {
         return (
             <>
                 <Icon xml={icon} width={28} height={28} stroke={stroke}/>
-                <Spacing size={8} type={ISpacingType.width} />
+                <Spacing size={8} type={"width"} />
             </>
         )
     }, []);

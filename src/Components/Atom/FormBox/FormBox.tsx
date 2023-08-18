@@ -1,7 +1,7 @@
 import React from "react";
 import {StyleProp, View, ViewProps, ViewStyle} from "react-native";
-import {dynamicStyle, styles} from "@/Components/Atom/FormBox/styles";
-import Spacing, {ISpacingType} from "@/Components/Atom/Spacing/Spacing";
+import {dynamicStyle} from "@/Components/Atom/FormBox/styles";
+import Spacing from "@/Components/Atom/Spacing/Spacing";
 import {useTheme} from "@react-navigation/native";
 import {FORM_TYPE} from "@/Components/Atom/FormBox/index";
 
@@ -26,7 +26,7 @@ const FormBox = ({
 
     return (
         <>
-            <Spacing size={20} type={ISpacingType.height} />
+            <Spacing size={20} type={"height"} />
             <View
                 {...props}
                 style={{borderRadius, minHeight, ...dynamicStyles.formBoxStyle, ...viewStyle}}

@@ -5,7 +5,7 @@ import FormHeader from "@/Components/Molecules/Form/FormHeader/FormHeader";
 import {useDispatch, useSelector} from "react-redux";
 import {StoreProps} from "@/Redux/store/store";
 import FormContent from "@/Components/Molecules/Form/FormContent/FormContent";
-import Spacing, {ISpacingType} from "@/Components/Atom/Spacing/Spacing";
+import Spacing from "@/Components/Atom/Spacing/Spacing";
 import DraggableFlatList, {RenderItemParams} from "react-native-draggable-flatlist";
 import FormToExample from "@/Components/Molecules/Form/FormHeader/FormToExample";
 import {FormContentInfo} from "@/Redux/slice/FormSlice/formType";
@@ -69,7 +69,7 @@ const Form = () => {
                 bounces={false}
                 showsVerticalScrollIndicator={false}
                 ListHeaderComponent={headerItem}
-                ListFooterComponent={() => <Spacing size={120} type={ISpacingType.height} />}
+                ListFooterComponent={() => <Spacing size={120} type={"height"} />}
                 renderItem={renderItem}
                 onDragEnd={({from, to}) => onDragEnd(to, from)}
             />
