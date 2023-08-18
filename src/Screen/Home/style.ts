@@ -9,6 +9,5 @@ export const styles = (themeColor) => StyleSheet.create({
         height: '100%',
         overflow: 'hidden'
     },
-    homeBox: {flexGrow: 1, backgroundColor: themeColor},
     homeScreen: {flex: 1, backgroundColor: COLOR_CODE.BLACK}
 })
